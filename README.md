@@ -3,6 +3,16 @@
 
 接入阿里云API，实现代码修改域名解析设置功能。
 
+## 配置文件 config.properties
+
+```code
+aliyun.region-id=区域id，可填 cn-shanghai
+aliyun.access-key-id=阿里云接口访问id
+aliyun.access-key-secret=阿里云接口访问secret
+```
+AccessKeyId和AccessKeySecret在阿里云后台获取。
+
+
 ## 示例：
 
 **查看域名解析信息**
