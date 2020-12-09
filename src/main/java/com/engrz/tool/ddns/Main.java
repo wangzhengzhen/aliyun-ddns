@@ -19,22 +19,7 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
 
-        Map<String, String> paramMap = new HashMap<>();
-        for (String s : args) {
-            if (!s.startsWith("--") || s.indexOf("=") < 3) {
-                Log.debug("非法参数：" + s);
-                continue;
-            }
-
-            String[] split = s.substring(2).split("=");
-            if (split.length < 2) {
-                Log.debug("非法参数：" + s);
-                continue;
-            }
-            String p = split[0];
-            String v = split[1];
-            paramMap.put(p, v);
-        }
+        Map<String, String> paramMap = CommonUtil.parseArgs(args);
         Log.info("接收参数：" + paramMap);
 
         // 读取配置文件
@@ -78,7 +63,7 @@ public class Main {
                             Log.info("记录值相同，无需修改");
                         } else {
                             ddns.updateDns(model);
-                            Log.info("记录修改成功，" + model.toString());
+                            Log.info("记录更新成功，" + model.toString());
                         }
                     }
                 };
